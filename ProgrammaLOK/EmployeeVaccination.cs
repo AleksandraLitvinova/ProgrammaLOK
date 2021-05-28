@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ProgrammaLOK
 {
-    class EmployeeVac
+    class EmployeeVaccination
     {
         int idEmployee;
         int idVaccination;

@@ -18,3 +18,23 @@
 \\Devsrv\dtd\Материалы\Материалы для проектов\ПП для ЛОК\ProgrammaLOK\ProgrammaLOK\obj\Debug\netcoreapp3.1\ProgrammaLOK.csproj.GenerateResource.cache
 \\Devsrv\dtd\Материалы\Материалы для проектов\ПП для ЛОК\ProgrammaLOK\ProgrammaLOK\obj\Debug\netcoreapp3.1\Interop.Microsoft.Office.Interop.Excel.dll
 \\Devsrv\dtd\Материалы\Материалы для проектов\ПП для ЛОК\ProgrammaLOK\ProgrammaLOK\bin\Debug\netcoreapp3.1\Interop.Microsoft.Office.Interop.Excel.dll
+D:\ProgrammaLOK\ProgrammaLOK\obj\Debug\netcoreapp3.1\ProgrammaLOK.csprojAssemblyReference.cache
+D:\ProgrammaLOK\ProgrammaLOK\obj\Debug\netcoreapp3.1\Interop.Microsoft.Office.Interop.Word.dll
+D:\ProgrammaLOK\ProgrammaLOK\obj\Debug\netcoreapp3.1\Interop.Microsoft.Office.Interop.Excel.dll
+D:\ProgrammaLOK\ProgrammaLOK\obj\Debug\netcoreapp3.1\ProgrammaLOK.csproj.ResolveComReference.cache
+D:\ProgrammaLOK\ProgrammaLOK\obj\Debug\netcoreapp3.1\ProgrammaLOK.Form1.resources
+D:\ProgrammaLOK\ProgrammaLOK\obj\Debug\netcoreapp3.1\ProgrammaLOK.csproj.GenerateResource.cache
+D:\ProgrammaLOK\ProgrammaLOK\obj\Debug\netcoreapp3.1\ProgrammaLOK.AssemblyInfoInputs.cache
+D:\ProgrammaLOK\ProgrammaLOK\obj\Debug\netcoreapp3.1\ProgrammaLOK.AssemblyInfo.cs
+D:\ProgrammaLOK\ProgrammaLOK\obj\Debug\netcoreapp3.1\ProgrammaLOK.csproj.CoreCompileInputs.cache
+D:\ProgrammaLOK\ProgrammaLOK\obj\Debug\netcoreapp3.1\ProgrammaLOK.dll
+D:\ProgrammaLOK\ProgrammaLOK\obj\Debug\netcoreapp3.1\ProgrammaLOK.pdb
+D:\ProgrammaLOK\ProgrammaLOK\bin\Debug\netcoreapp3.1\ProgrammaLOK.exe
+D:\ProgrammaLOK\ProgrammaLOK\bin\Debug\netcoreapp3.1\ProgrammaLOK.deps.json
+D:\ProgrammaLOK\ProgrammaLOK\bin\Debug\netcoreapp3.1\ProgrammaLOK.runtimeconfig.json
+D:\ProgrammaLOK\ProgrammaLOK\bin\Debug\netcoreapp3.1\ProgrammaLOK.runtimeconfig.dev.json
+D:\ProgrammaLOK\ProgrammaLOK\bin\Debug\netcoreapp3.1\ProgrammaLOK.dll
+D:\ProgrammaLOK\ProgrammaLOK\bin\Debug\netcoreapp3.1\ProgrammaLOK.pdb
+D:\ProgrammaLOK\ProgrammaLOK\bin\Debug\netcoreapp3.1\Interop.Microsoft.Office.Interop.Word.dll
+D:\ProgrammaLOK\ProgrammaLOK\bin\Debug\netcoreapp3.1\Interop.Microsoft.Office.Interop.Excel.dll
+D:\ProgrammaLOK\ProgrammaLOK\obj\Debug\netcoreapp3.1\ProgrammaLOK.genruntimeconfig.cache

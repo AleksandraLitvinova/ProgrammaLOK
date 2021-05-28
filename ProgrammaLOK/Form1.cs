@@ -17,13 +17,19 @@ namespace ProgrammaLOK
         {
             InitializeComponent();
 
-            Employee emp = new Employee();
-            emp.getTable();
-            emp.e_Table();
+            DataExtraction d = new DataExtraction(@"\\Devsrv\dtd\Материалы\Материалы для проектов\ПП для ЛОК\Прививки(копия).doc");
+            d.set_vaccinations_list();
+          
+            //emp.e_Table();
         }
 
-        
-        
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+
+
 
         //Function f = new Function();
         //f.doAfter = Program.Method;

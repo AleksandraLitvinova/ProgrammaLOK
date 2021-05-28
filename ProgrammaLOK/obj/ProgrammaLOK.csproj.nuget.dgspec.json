@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "\\\\Devsrv\\dtd\\Материалы\\Материалы для проектов\\ПП для ЛОК\\ProgrammaLOK\\ProgrammaLOK\\ProgrammaLOK.csproj": {}
+    "D:\\ProgrammaLOK\\ProgrammaLOK\\ProgrammaLOK.csproj": {}
   },
   "projects": {
-    "\\\\Devsrv\\dtd\\Материалы\\Материалы для проектов\\ПП для ЛОК\\ProgrammaLOK\\ProgrammaLOK\\ProgrammaLOK.csproj": {
+    "D:\\ProgrammaLOK\\ProgrammaLOK\\ProgrammaLOK.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "\\\\Devsrv\\dtd\\Материалы\\Материалы для проектов\\ПП для ЛОК\\ProgrammaLOK\\ProgrammaLOK\\ProgrammaLOK.csproj",
+        "projectUniqueName": "D:\\ProgrammaLOK\\ProgrammaLOK\\ProgrammaLOK.csproj",
         "projectName": "ProgrammaLOK",
-        "projectPath": "\\\\Devsrv\\dtd\\Материалы\\Материалы для проектов\\ПП для ЛОК\\ProgrammaLOK\\ProgrammaLOK\\ProgrammaLOK.csproj",
+        "projectPath": "D:\\ProgrammaLOK\\ProgrammaLOK\\ProgrammaLOK.csproj",
         "packagesPath": "C:\\Users\\LitvinovaAA\\.nuget\\packages\\",
-        "outputPath": "\\\\Devsrv\\dtd\\Материалы\\Материалы для проектов\\ПП для ЛОК\\ProgrammaLOK\\ProgrammaLOK\\obj\\",
+        "outputPath": "D:\\ProgrammaLOK\\ProgrammaLOK\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
