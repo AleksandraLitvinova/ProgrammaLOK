@@ -6,11 +6,29 @@ namespace ProgrammaLOK
 {
     public class Employee
     {
-        //public int id { get; set; };
-        int idEmployee;
+        public int idEmployee;
         int yearBirth;
-        int phone;
+        string phone;
 
+        public Employee(int idEmployee, object yearBirth, object phone)
+        {
+
+            
+
+            this.idEmployee = idEmployee;
+            int.TryParse(yearBirth == null?"0":yearBirth.ToString(), out this.yearBirth);
+            
+            this.phone = phone == null?"":phone.ToString();
+            //this.phone=phone?.ToString(); //тоже самое что и предыдущая строка только ? => это проверка может ли быть null
+            
+        }
+
+        public int f(out int h)
+        {
+            h = 6;
+            int t = 7;
+            return t;
+        }
         //public void Main()
         //{
         //    DataExtraction father = new DataExtraction();

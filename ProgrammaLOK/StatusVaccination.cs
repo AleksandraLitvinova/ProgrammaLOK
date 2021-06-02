@@ -6,7 +6,13 @@ namespace ProgrammaLOK
 {
     class StatusVaccination
     {
-        int IDstatus;
-        string nameStatus; 
+        int id;
+        public string name;
+
+        public StatusVaccination(int idStatus, string nameStatus)
+        {
+            this.id = idStatus;
+            this.name = nameStatus;
+        }
     }
 }

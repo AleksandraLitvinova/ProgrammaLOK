@@ -6,8 +6,8 @@ namespace ProgrammaLOK
 {
     class Vaccination
     {
-        int id;
-        string name;
+        public int id;
+        public string name;
         int period;
         int age;
         int idNext;
