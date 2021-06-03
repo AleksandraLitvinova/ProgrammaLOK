@@ -15,13 +15,12 @@ namespace ProgrammaLOK
     {
         public Form1()
         {
+     
+
             InitializeComponent();
 
             DataExtraction d = new DataExtraction(@"\\Devsrv\dtd\Материалы\Материалы для проектов\ПП для ЛОК\Прививки(копия).doc");
-            d.set_vaccinations_list();
-            d.set_employees_list();
-            //List<object[]> tt = d.getTable(@"\\Devsrv\dtd\Материалы\Материалы для проектов\ПП для ЛОК\Прививки(копия).doc");
-            d.set_statusesVaccinations_list();
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)

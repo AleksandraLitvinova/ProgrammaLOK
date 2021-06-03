@@ -6,7 +6,7 @@ namespace ProgrammaLOK
 {
     class StatusVaccination
     {
-        int id;
+        public int id;
         public string name;
 
         public StatusVaccination(int idStatus, string nameStatus)

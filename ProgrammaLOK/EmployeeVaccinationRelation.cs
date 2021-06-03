@@ -8,9 +8,10 @@ namespace ProgrammaLOK
     {
         int idEmployee;
         int idVaccination;
-        int idStatus;
+        public int idStatus;
         public int dateVaccination;
         string datePlanVaccination;
+        public DateTime dt;
 
         public EmployeeVaccinationRelation(int idEmployee, int idVaccination)
         {
