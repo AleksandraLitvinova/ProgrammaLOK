@@ -12,7 +12,7 @@ namespace ProgrammaLOK
         List<EmployeeVaccinationRelation> employeesVaccinations = new List<EmployeeVaccinationRelation>();
         List<StatusVaccination> statusesVaccinations = new List<StatusVaccination>();
 
-        public List<object[,]> getTable(object FileName)
+        public List<object[]> getTable(object FileName)
         {
             //object FileName = @"\\Devsrv\dtd\Материалы\Материалы для проектов\ПП для ЛОК\Прививки(копия).doc";
             object rOnly = true;
@@ -22,53 +22,29 @@ namespace ProgrammaLOK
             //Создаем документ
             Word.Document doc = null;
             //Word.Range range = null;
-            List<object[,]> Rows = new List<object[,]>();
+            //List<object[,]> Rows = new List<object[,]>();
+            List<object[]> Rows = new List<object[]>();
 
             try
             {
                 //Открываем документ
                 doc = word.Documents.Open(ref FileName, ref rOnly);
                 Word.Table tbl = null;
-
-
-
-                //for (int i = 1; i<doc.Characters.Count; i++)
-                //{
-                    tbl = doc.Tables[1];
-                    object begCell = tbl.Cell(3, 1).Range.Start;
-                    object endCell = tbl.Cell(tbl.Rows.Count, 13).Range.End;
-                    Word.Range wordcellrange = doc.Range(ref begCell, ref endCell);
-
-                var t =wordcellrange.value
-
-                    object[,] mas = new object[tbl.Rows.Count-2, 12];
-                for(int i=0;i<tbl.Rows.Count;i++)
-                {
-                    for (int j = 0; j < 12; j++)
-                    {
-                        wordcellrange = tbl.Cell(i+3, j + 1).Range;
-                        mas[i, j] = wordcellrange.Text;
-                    }
-                    
-                    Rows.Add(mas);
-                }
-                //}
-
-
+                tbl = doc.Tables[1];
 
                 //foreach (Word.Table tbl in doc.Tables)
-                //{               
-                //for (int i = 3; i <= tbl.Rows.Count; i++)
-                //    {
-                //        var row = new object[tbl.Columns.Count];
-                //        for (int j = 0; j < tbl.Columns.Count; j++)
-                //        {
-                //            row[j] = tbl.Cell(i, j + 1).Range.Text;
-                //        }
-                //        Rows.Add(row);
-                //    }
-                ////}
-            }
+                //{
+                for (int i = 3; i <= tbl.Rows.Count; i++)
+                    {
+                        var row = new object[tbl.Columns.Count];
+                        for (int j = 0; j < tbl.Columns.Count; j++)
+                        {
+                            row[j] = tbl.Cell(i, j + 1).Range.Text;
+                        }
+                        Rows.Add(row);
+                    }
+                //}
+                }
             catch {
 
             }
@@ -84,49 +60,71 @@ namespace ProgrammaLOK
             return Rows;
         }
 
-        //private void set_employees_list()
-        //{
-        //    var row_employee = getTable(@"\\Devsrv\dtd\Материалы\Материалы для проектов\ПП для ЛОК\Прививки(копия).doc");
-        //    int id_count_employee = 1;
-        //    foreach (object[] row in row_employee)
-        //    {
-        //        if (row[1] == null || row[1].ToString() == "")
-        //            continue;
-        //        Employee emp = new Employee(id_count_employee, row[2], row[3]);
-        //        employees.Add(emp);
-        //        id_count_employee++;
-        //        for (int i = 4; i < row.Length; i++)
-        //        {
-        //            if (row[i] == null)
-        //                continue;
-        //            var cell = row[i].ToString().Trim().Replace("\a", "").Replace("\r", "");
-        //            if (cell == "")
-        //                continue;
+        private void set_employees_list()
+        {
+            var row_employee = getTable(@"\\Devsrv\dtd\Материалы\Материалы для проектов\ПП для ЛОК\Прививки(копия).doc");
+            int id_count_employee = 1;
+            foreach (object[] row in row_employee)
+            {
+                if (row[1] == null || row[1].ToString() == "")
+                    continue;
+                Employee emp = new Employee(id_count_employee, row[2], row[3]);
+                employees.Add(emp);
+                id_count_employee++;
+                for (int i = 4; i < row.Length; i++)
+                {
+                    if (row[i] == null)
+                        continue;
+                    
+                    var cell = row[i].ToString().Trim().Replace("\a", "").Replace("\r", "");
+                    if (cell == "")
+                        continue;
 
-        //            var vac = vaccinations.Find(v => v.id == i - 3);
-        //            if (vac == null)
-        //                continue;
-        //            var relation = new EmployeeVaccinationRelation(emp.idEmployee, vac.id);
-        //            employeesVaccinations.Add(relation);
-        //            if (int.TryParse(cell, out int data))
-        //            {
-        //                relation.dateVaccination = data;
-        //                relation.idStatus = get_statusVaccination("Посталена");
-                        
-        //            }
-        //            else if (DateTime.TryParse(cell, out DateTime data2))
-        //            {
-        //                relation.dt = data2;
-        //                relation.idStatus = get_statusVaccination("Посталена");
-        //            }
-        //            else
-        //            {
-        //                relation.idStatus = get_statusVaccination(cell);
-        //            }
+                    var vac = vaccinations.Find(v => v.id == i - 3);
+                    if (vac == null)
+                        continue;
+ 
+                    //проанализировать статус и взять либо то что в статусе (вакцина) + если есть дата изъять
 
-        //        }
-        //    }
-        //}
+                    var relation = new EmployeeVaccinationRelation(emp.idEmployee, vac.id);
+                    employeesVaccinations.Add(relation);
+
+
+                    //foreach (StatusVaccination st in statusesVaccinations)
+                    //{
+                    string st = "Пневмо-23";
+                    int index = cell.ToLower().IndexOf(st.ToLower());
+                        if (index>=0)
+                        {
+                            
+                            cell = cell.Substring(0, index)+cell.Substring(st.Length+index);
+                            
+                            
+                            int id_pn = vac.id + 7;
+                            relation = new EmployeeVaccinationRelation(emp.idEmployee, id_pn);
+                            employeesVaccinations.Add(relation);
+                        }
+                    //}
+
+                    
+                    if (int.TryParse(cell, out int year))
+                    {
+                        relation.dateVaccination = year;
+                        relation.idStatus = get_statusVaccination("Посталена");
+                    }
+                    else if (DateTime.TryParse(cell, out DateTime data))
+                    {
+                        relation.dt = data;
+                        relation.idStatus = get_statusVaccination("Посталена");
+                    }
+                    else
+                    {
+                        relation.idStatus = get_statusVaccination(cell);
+                    }
+
+                }
+            }
+        }
 
         private void set_vaccinations_list()
         {
@@ -146,19 +144,13 @@ namespace ProgrammaLOK
             vaccinations.Add(new Vaccination(13, "Ковид"));
         }
 
-        public void set_employeesVaccinations_list()
-        {
-
-
-        }
-
         public int get_statusVaccination(string value)
         {
             var st = statusesVaccinations.Find(v => v.name == value);
 
             if (st == null)
             {
-                st = new StatusVaccination(statusesVaccinations.Count, value);
+                st = new StatusVaccination(statusesVaccinations.Count+1, value);
                 statusesVaccinations.Add(st);
             }
 
@@ -169,7 +161,7 @@ namespace ProgrammaLOK
         {
             var Rows = getTable(FileName);
             set_vaccinations_list();
-            //set_employees_list();
+            set_employees_list();
         }
 
     }
