@@ -15,31 +15,40 @@ namespace ProgrammaLOK
     {
         public Form1()
         {
-            string st = "Пневмо-23"; string cell = "11Пневмо-23 01.01.0001";
-            int index = cell.ToLower().IndexOf(st.ToLower());
-            if (index >= 0)
-            {
-
-                cell = cell.Substring(0, index) + cell.Substring(st.Length+index);
-                cell = cell.
-            }
-
-
-
             InitializeComponent();
-
+            int index = 0;
+            //for (int j = 0; j < st.Length; j++)
+            //{
+            //    index = cell.ToLower().IndexOf(st2);
+            //    if (index >= 0)
+            //    {
+            //        switch (j)
+            //        {
+            //            case 0:
+            //                id_pn = vac.id + 7;
+            //                break;
+            //            case 1:
+            //                id_pn = vac.id + 8;
+            //                break;
+            //            case 2:
+            //                id_pn = vac.id + 9;
+            //                break;
+            //            case 3:
+            //                id_pn = vac.id + 10;
+            //                break;
+            //        }
+            //        cell = cell.Substring(st[j].Length + index).Trim();
+            //        //int id_pn = vac.id + 7;
+            //        relation = new EmployeeVaccinationRelation(emp.idEmployee, id_pn);
+            //        employeesVaccinations.Add(relation);
+            //        break;
+            //    }
+            //}
             DataExtraction d = new DataExtraction(@"\\Devsrv\dtd\Материалы\Материалы для проектов\ПП для ЛОК\Прививки(копия).doc");
-
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
-
-
-            //Function f = new Function();
-            //f.doAfter = Program.Method;
-            //f.doSomething();
 
         }
     }

@@ -91,21 +91,37 @@ namespace ProgrammaLOK
 
 
                     //foreach (StatusVaccination st in statusesVaccinations)
-                    //{
-                    string st = "Пневмо-23";
-                    int index = cell.ToLower().IndexOf(st.ToLower());
-                        if (index>=0)
+
+                    string[] st = new string[] { "Пневмо-23", "Превенар", "АС", "Ковид" };   
+                    int id_pn = 0;
+                    int index = 0;
+                    for (int j=0;j<st.Length;j++)
+                    {
+                        index = cell.ToLower().IndexOf(st[j].ToLower());
+                        if (index >= 0)
                         {
-                            
-                            cell = cell.Substring(0, index)+cell.Substring(st.Length+index);
-                            
-                            
-                            int id_pn = vac.id + 7;
+                            switch (j)
+                            {
+                                case 0:
+                                    id_pn = vac.id + 7;
+                                    break;
+                                case 1:
+                                    id_pn = vac.id + 8;
+                                    break;
+                                case 2:
+                                    id_pn = vac.id + 9;
+                                    break;
+                                case 3:
+                                    id_pn = vac.id + 10;
+                                    break;
+                            }
+                            cell = cell.Substring(st[j].Length + index).Trim();
+                            //int id_pn = vac.id + 7;
                             relation = new EmployeeVaccinationRelation(emp.idEmployee, id_pn);
                             employeesVaccinations.Add(relation);
+                            break;
                         }
-                    //}
-
+                    }
                     
                     if (int.TryParse(cell, out int year))
                     {
@@ -119,6 +135,10 @@ namespace ProgrammaLOK
                     }
                     else
                     {
+                        if (cell == null || cell == "")
+                        {
+                            relation.idStatus = get_statusVaccination("Посталена");
+                        }
                         relation.idStatus = get_statusVaccination(cell);
                     }
 
