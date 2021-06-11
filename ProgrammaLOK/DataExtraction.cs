@@ -106,15 +106,20 @@ namespace ProgrammaLOK
                     var currentStatus = "Посталена";
                     foreach (var st in statusesVaccinations)
                     {
-                        int index = cell.ToLower().IndexOf(st.name.ToLower());
+                        string st_cell = cell;
+                        int index = st_cell.ToLower().IndexOf(st.name.ToLower());
                         if (index < 0)
                             continue;
 
                         //vac = st;
-                        cell = cell.Substring(st.name.Length + index).Trim();
-                        if(cell!="")
+                        st_cell = st_cell.Substring(0, index).Trim()+st_cell.Substring(st.name.Length + index).Trim();
+                        if(st_cell !="")
                         {
-
+                            currentStatus = "Отказ";
+                        }
+                        else
+                        {
+                            relation.idStatus = get_statusVaccination(cell);
                         }
                         break;
                     }
@@ -129,16 +134,13 @@ namespace ProgrammaLOK
                         relation.dt = data;
                         relation.idStatus = get_statusVaccination(currentStatus);
                     }
+                    else if(cell == "")
+                    {
+                        relation.idStatus = get_statusVaccination(currentStatus);
+                    }
                     else
                     {
-                        if (cell == null || cell == "")
-                        {
-                            relation.idStatus = get_statusVaccination(currentStatus);
-                        }
-                        else
-                        {
                             relation.idStatus = get_statusVaccination(cell);
-                        }
                     }
                 }
             }
@@ -163,10 +165,22 @@ namespace ProgrammaLOK
             vaccinations.Add(new Vaccination(13, "Ковид"));
             vaccinations.Sort((foo1, foo2) => foo2.name.Length.CompareTo(foo1.name.Length));
         }
+                    
+        private void set_statuses_list()
+        {
+            statusesVaccinations.Add(new StatusVaccination(1, "Отказ"));
+            statusesVaccinations.Add(new StatusVaccination(2, "Поставлено", new List<string>() { "Поставлена", "+" }));
+            statusesVaccinations.Add(new StatusVaccination(3, "Болезнь", new List<string>() { "Болела", "Болел" }));
+            statusesVaccinations.Add(new StatusVaccination(4, "Антитела", new List<string>() { "а/т +" }));
+            statusesVaccinations.Add(new StatusVaccination(5, "Привит", new List<string>() { "Привит", "Привита" }));
+            statusesVaccinations.Add(new StatusVaccination(6, "Декретный отпуск", new List<string>() { "Д/о" }));
+            statusesVaccinations.Add(new StatusVaccination(7, "Медицинский отвод", new List<string>() { "М/от" }));
+
+        }
 
         public int get_statusVaccination(string value)
         {
-            var st = statusesVaccinations.Find(v => v.name == value.Trim());
+            var st = statusesVaccinations.Find(v => v.Equals(value));
 
             if (st == null)
             {
@@ -180,6 +194,7 @@ namespace ProgrammaLOK
         public DataExtraction(string FileName)
         {
             set_vaccinations_list();
+            set_statuses_list();
             set_employees_list();
 
             string statuses = "";
